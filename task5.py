@@ -64,10 +64,12 @@ def build_heap_tree(heap):
 
 
 def color_gradient(n, base_color="#1296F0"):
-    base_rgb = np.array([int(base_color[i:i+2], 16) for i in (1, 3, 5)]) / 255.0
+    base_rgb = np.array([int(base_color[i : i + 2], 16) for i in (1, 3, 5)]) / 255.0
     base_hsv = rgb_to_hsv(base_rgb)
 
-    gradients = [hsv_to_rgb([base_hsv[0], base_hsv[1], 0.3 + (0.7 * i / n)]) for i in range(n)]
+    gradients = [
+        hsv_to_rgb([base_hsv[0], base_hsv[1], 0.3 + (0.7 * i / n)]) for i in range(n)
+    ]
     return [to_hex(color) for color in gradients]
 
 
